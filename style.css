@@ -478,6 +478,7 @@ body.dark-theme {
   gap: 20px;
   justify-content: center;
   padding: 20px;
+  margin-top: 30px;
 }
 
 /* Individual Card Styling */
