@@ -106,3 +106,125 @@ for (let i = 0; i < starCount; i++) {
 // Call the function to create stars
 createStars();
 
+
+// Theme Toggle Function
+function toggleTheme() {
+  document.body.classList.toggle('dark-theme');
+  updateChartThemes();
+}
+
+// Function to Update Chart Themes
+function updateChartThemes() {
+  const isDarkTheme = document.body.classList.contains('dark-theme');
+  const theme = isDarkTheme ? 'dark' : 'light';
+
+  // Update all charts
+  Highcharts.charts.forEach(chart => {
+    if (chart) {
+      chart.update({
+        chart: {
+          backgroundColor: isDarkTheme ? '#1e1e1e' : '#ffffff',
+        },
+        title: {
+          style: {
+            color: isDarkTheme ? '#fff' : '#333',
+          },
+        },
+        xAxis: {
+          labels: {
+            style: {
+              color: isDarkTheme ? '#fff' : '#333',
+            },
+          },
+          title: {
+            style: {
+              color: isDarkTheme ? '#fff' : '#333',
+            },
+          },
+        },
+        yAxis: {
+          labels: {
+            style: {
+              color: isDarkTheme ? '#fff' : '#333',
+            },
+          },
+          title: {
+            style: {
+              color: isDarkTheme ? '#fff' : '#333',
+            },
+          },
+        },
+        legend: {
+          itemStyle: {
+            color: isDarkTheme ? '#fff' : '#333',
+          },
+        },
+      });
+    }
+  });
+}
+
+// Initialize Charts
+Highcharts.chart('lineChart', {
+  chart: { type: 'line', backgroundColor: 'transparent' },
+  title: { text: 'Line Chart', style: { color: '#333' } },
+  xAxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], labels: { style: { color: '#333' } } },
+  yAxis: { title: { text: 'Values', style: { color: '#333' } }, labels: { style: { color: '#333' } } },
+  series: [
+    { name: 'Series 1', data: [1, 3, 2, 4, 5, 7] },
+    { name: 'Series 2', data: [4, 2, 5, 1, 6, 3] }
+  ]
+});
+
+Highcharts.chart('pieChart', {
+  chart: { type: 'pie', backgroundColor: 'transparent' },
+  title: { text: 'Pie Chart', style: { color: '#333' } },
+  series: [{
+    name: 'Data',
+    data: [
+      ['Category 1', 45],
+      ['Category 2', 30],
+      ['Category 3', 25]
+    ]
+  }]
+});
+
+Highcharts.chart('donutChart', {
+  chart: { type: 'pie', backgroundColor: 'transparent' },
+  title: { text: 'Donut Chart', style: { color: '#333' } },
+  plotOptions: {
+    pie: { innerSize: '50%' } // Makes it a donut chart
+  },
+  series: [{
+    name: 'Data',
+    data: [
+      ['Category 1', 45],
+      ['Category 2', 30],
+      ['Category 3', 25]
+    ]
+  }]
+});
+
+Highcharts.chart('barChart', {
+  chart: { type: 'bar', backgroundColor: 'transparent' },
+  title: { text: 'Bar Chart', style: { color: '#333' } },
+  xAxis: { categories: ['Category 1', 'Category 2', 'Category 3', 'Category 4'], labels: { style: { color: '#333' } } },
+  yAxis: { title: { text: 'Values', style: { color: '#333' } }, labels: { style: { color: '#333' } } },
+  series: [
+    { name: 'Series 1', data: [5, 10, 15, 20] },
+    { name: 'Series 2', data: [10, 15, 10, 5] }
+  ]
+});
+
+Highcharts.chart('scatterPlot', {
+  chart: { type: 'scatter', backgroundColor: 'transparent' },
+  title: { text: 'Scatter Plot', style: { color: '#333' } },
+  xAxis: { title: { text: 'X-Axis', style: { color: '#333' } }, labels: { style: { color: '#333' } } },
+  yAxis: { title: { text: 'Y-Axis', style: { color: '#333' } }, labels: { style: { color: '#333' } } },
+  series: [{
+    name: 'Data Points',
+    data: [
+      [1, 5], [2, 8], [3, 3], [4, 7], [5, 2]
+    ]
+  }]
+});

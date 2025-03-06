@@ -10,6 +10,7 @@
     <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
    </head>
    <body class="light-theme">
   <div class="sidebar close">
@@ -179,12 +180,23 @@
             <p class="text-primary-p">Neuro</p>
             <span class="font-bold text-title">1,129</span>
         </div>
+      </div>
     </div>
 
-            
-
-      
+    <div class="chart-container">
+      <!-- Line Chart -->
+      <div id="lineChart" class="chart"></div>
+  
+      <!-- Pie Chart -->
+      <div id="pieChart" class="chart"></div>
+  
+      <!-- Donut Chart -->
+      <div id="donutChart" class="chart"></div>
+  
+      <!-- Bar Chart -->
+      <div id="barChart" class="chart"></div>
     </div>
+
   </section>
 
   <script src="script.js"></script>
